@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Zap, AlertCircle } from "lucide-react";
+import { Zap, AlertCircle, LogIn } from "lucide-react";
+import { Link } from "react-router-dom";
 import api from "../api/axios";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -9,8 +10,18 @@ export default function AllEvents() {
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
+        // Validar si el usuario está autenticado
+        const token = localStorage.getItem("token");
+        if (!token) {
+            setIsAuthenticated(false);
+            setLoading(false);
+            return;
+        }
+
+        setIsAuthenticated(true);
         fetchAllEvents();
     }, []);
 
@@ -47,24 +58,54 @@ export default function AllEvents() {
                 {/* Main Content */}
                 <div className="flex-grow w-full px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center py-24 md:py-32">
                     <div className="w-full max-w-7xl">
-                        {/* Header Section */}
-                        <div className="text-center mb-20">
-                            <div className="flex items-center gap-3 justify-center mb-8">
-                                <Zap className="w-8 h-8 text-primary-600 animate-pulse" />
-                                <h1 className="text-5xl md:text-6xl font-black text-gray-900">
-                                    Todos los Eventos Disponibles
-                                </h1>
-                                <div className="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-2 rounded-full font-black text-xl shadow-lg">
-                                    {events.length}
+                        {/* Not Authenticated Message */}
+                        {!isAuthenticated && !loading && (
+                            <div className="w-full bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl shadow-xl p-20 text-center border-2 border-amber-300 hover:shadow-2xl transition-all space-y-8">
+                                <div className="text-8xl animate-bounce">🔒</div>
+                                <h2 className="text-5xl font-black text-gray-900">
+                                    ¡Inicia Sesión Primero!
+                                </h2>
+                                <p className="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed font-medium">
+                                    Debes iniciar sesión para ver todos los eventos disponibles en nuestra plataforma. 🚀
+                                </p>
+                                <div className="flex flex-col sm:flex-row gap-5 justify-center pt-6">
+                                    <Link
+                                        to="/login"
+                                        className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white px-10 py-4 rounded-xl hover:shadow-2xl font-bold text-lg transition-all duration-300 shadow-lg"
+                                    >
+                                        <LogIn className="w-6 h-6" />
+                                        Iniciar Sesión
+                                    </Link>
+                                    <Link
+                                        to="/register"
+                                        className="inline-flex items-center justify-center gap-3 border-2 border-amber-500 text-amber-600 px-10 py-4 rounded-xl hover:bg-amber-50 font-bold text-lg transition-all duration-300"
+                                    >
+                                        Crear Cuenta
+                                    </Link>
                                 </div>
                             </div>
-                            <p className="text-xl text-gray-700 mx-auto leading-relaxed text-center w-full">
-                                Explora todos los eventos de limpieza disponibles en nuestra plataforma y únete a cualquiera que te interese. 🌱
-                            </p>
-                        </div>
+                        )}
+
+                        {/* Header Section - Only show if authenticated */}
+                        {isAuthenticated && (
+                            <div className="text-center mb-20">
+                                <div className="flex items-center gap-3 justify-center mb-8">
+                                    <Zap className="w-8 h-8 text-primary-600 animate-pulse" />
+                                    <h1 className="text-5xl md:text-6xl font-black text-gray-900">
+                                        Todos los Eventos Disponibles
+                                    </h1>
+                                    <div className="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-2 rounded-full font-black text-xl shadow-lg">
+                                        {events.length}
+                                    </div>
+                                </div>
+                                <p className="text-xl text-gray-700 mx-auto leading-relaxed text-center w-full">
+                                    Explora todos los eventos de limpieza disponibles en nuestra plataforma y únete a cualquiera que te interese. 🌱
+                                </p>
+                            </div>
+                        )}
 
                         {/* Loading State */}
-                        {loading && (
+                        {isAuthenticated && loading && (
                             <div className="flex flex-col items-center justify-center py-32">
                                 <div className="relative mb-8">
                                     <div className="w-20 h-20 border-4 border-gray-200 rounded-full"></div>
@@ -76,7 +117,7 @@ export default function AllEvents() {
                         )}
 
                         {/* Error State */}
-                        {error && !loading && (
+                        {isAuthenticated && error && !loading && (
                             <div className="w-full bg-red-50 border-2 border-red-300 rounded-2xl p-12 text-center">
                                 <AlertCircle className="w-16 h-16 text-red-600 mx-auto mb-4" />
                                 <p className="text-red-700 font-bold text-xl mb-4">{error}</p>
@@ -90,7 +131,7 @@ export default function AllEvents() {
                         )}
 
                         {/* Events Grid */}
-                        {!loading && !error && (
+                        {isAuthenticated && !loading && !error && (
                             <>
                                 {events.length > 0 ? (
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
