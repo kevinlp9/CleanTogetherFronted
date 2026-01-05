@@ -23,7 +23,8 @@ export default function CreateEvent() {
         description: "",
         location: "",
         date: "",
-        time: "",
+        startTime: "",
+        duration: "01:00",
         image: null,
     });
     const [mapCenter, setMapCenter] = useState({ lat: 19.4326, lng: -99.1332 });
@@ -60,13 +61,13 @@ export default function CreateEvent() {
         e.preventDefault();
         setError("");
 
-        if (!formData.title || !formData.description || !formData.location || !formData.date || !formData.time) {
-            setError("Please fill in all required fields");
+        if (!formData.title || !formData.description || !formData.location || !formData.date || !formData.startTime || !formData.duration) {
+            setError("Todos los campos son obligatorios");
             return;
         }
 
         if (!selectedLocation) {
-            setError("Please select a location on the map");
+            setError("Por favor selecciona una ubicación en el mapa");
             return;
         }
 
@@ -76,8 +77,14 @@ export default function CreateEvent() {
             submitData.append("title", formData.title);
             submitData.append("description", formData.description);
             submitData.append("location", formData.location);
-            submitData.append("date", formData.date);
-            submitData.append("time", formData.time);
+
+            // Combinar fecha y hora de inicio en un DateTime para eventDate
+            const eventDateTime = new Date(`${formData.date}T${formData.startTime}`);
+            submitData.append("eventDate", eventDateTime.toISOString());
+
+            // Enviar duración como TimeSpan (HH:mm:ss) para eventTime
+            submitData.append("eventTime", `${formData.duration}:00`);
+
             submitData.append("latitude", selectedLocation.lat);
             submitData.append("longitude", selectedLocation.lng);
             if (formData.image) {
@@ -94,7 +101,7 @@ export default function CreateEvent() {
                 navigate("/events");
             }, 2000);
         } catch (err) {
-            setError(err.response?.data?.message || "Failed to create event");
+            setError(err.response?.data?.message || "Error al crear el evento");
         } finally {
             setLoading(false);
         }
@@ -253,17 +260,34 @@ export default function CreateEvent() {
                                         {/* Time Field */}
                                         <div className="animate-fade-in" style={{ animationDelay: '500ms' }}>
                                             <label className="block text-sm font-bold text-gray-800 mb-3">
-                                                <span className="text-orange-600">🕐</span> Hora
+                                                <span className="text-orange-600">🕐</span> Hora de Inicio
                                             </label>
                                             <input
                                                 type="time"
-                                                name="time"
-                                                value={formData.time}
+                                                name="startTime"
+                                                value={formData.startTime}
                                                 onChange={handleChange}
                                                 className="w-full px-5 py-3 border-2 border-gray-300 rounded-xl focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all text-lg"
                                                 required
                                             />
                                         </div>
+                                    </div>
+
+                                    {/* Duration Field */}
+                                    <div className="animate-fade-in" style={{ animationDelay: '550ms' }}>
+                                        <label className="block text-sm font-bold text-gray-800 mb-3">
+                                            <span className="text-purple-600">⏱️</span> Término del Evento
+                                        </label>
+                                        <input
+                                            type="time"
+                                            name="duration"
+                                            placeholder="HH:MM"
+                                            value={formData.duration}
+                                            onChange={handleChange}
+                                            className="w-full px-5 py-3 border-2 border-gray-300 rounded-xl focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all text-lg"
+                                            required
+                                        />
+                                        <p className="text-gray-600 text-sm mt-2">💡 Ejemplo: 01:30 significa 1 hora y 30 minutos</p>
                                     </div>
 
                                     {/* Google Map Section */}

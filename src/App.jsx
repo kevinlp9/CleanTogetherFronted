@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import NearbyEvents from "./events/NearbyEvents";
+import AllEvents from "./events/AllEvents";
 import CreateEvent from "./events/CreateEvent";
 import EventDetail from "./events/EventDetail";
 
@@ -11,6 +12,7 @@ export default function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/all-events" element={<AllEvents />} />
                 <Route path="/events" element={<NearbyEvents />} />
                 <Route path="/events/create" element={<CreateEvent />} />
                 <Route path="/events/:id" element={<EventDetail />} />

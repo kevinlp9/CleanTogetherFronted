@@ -162,30 +162,58 @@ export default function EventDetail() {
 
                                 {/* Event Info Card */}
                                 <div className="bg-white rounded-3xl shadow-xl p-10 border-2 border-primary-200 animate-fade-in" style={{ animationDelay: '100ms' }}>
-                                    <div className="mb-8">
-                                        <h1 className="text-5xl font-black text-gray-900 mb-4">
+                                    <div className="mb-12">
+                                        <h1 className="text-5xl font-black text-gray-900 mb-8">
                                             {event.title}
                                         </h1>
-                                        <div className="flex flex-wrap gap-6">
-                                            <div className="flex items-center gap-3 bg-blue-50 px-5 py-3 rounded-xl border-2 border-blue-200">
-                                                <Calendar className="w-6 h-6 text-blue-600" />
-                                                <div>
-                                                    <p className="text-sm text-blue-600 font-semibold">Fecha</p>
-                                                    <p className="text-lg font-black text-blue-900">{event.date}</p>
+                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                            {/* Date Card */}
+                                            <div className="flex flex-col items-center gap-4 bg-blue-50 px-8 py-6 rounded-2xl border-2 border-blue-300 hover:shadow-lg transition-all">
+                                                <Calendar className="w-8 h-8 text-blue-600" />
+                                                <div className="text-center">
+                                                    <p className="text-xs text-blue-600 font-bold uppercase tracking-wide mb-2">Fecha y Hora</p>
+                                                    <p className="text-2xl font-black text-blue-900">
+                                                        {event.eventDate ? new Date(event.eventDate).toLocaleDateString('es-MX', {
+                                                            year: 'numeric',
+                                                            month: 'short',
+                                                            day: 'numeric'
+                                                        }) : 'N/A'}
+                                                    </p>
+                                                    <p className="text-lg font-bold text-blue-700 mt-2">
+                                                        {event.eventDate ? new Date(event.eventDate).toLocaleTimeString('es-MX', {
+                                                            hour: '2-digit',
+                                                            minute: '2-digit'
+                                                        }) : 'N/A'}
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <div className="flex items-center gap-3 bg-orange-50 px-5 py-3 rounded-xl border-2 border-orange-200">
-                                                <Clock className="w-6 h-6 text-orange-600" />
-                                                <div>
-                                                    <p className="text-sm text-orange-600 font-semibold">Hora</p>
-                                                    <p className="text-lg font-black text-orange-900">{event.time}</p>
+
+                                            {/* Duration Card */}
+                                            <div className="flex flex-col items-center gap-4 bg-orange-50 px-8 py-6 rounded-2xl border-2 border-orange-300 hover:shadow-lg transition-all">
+                                                <Clock className="w-8 h-8 text-orange-600" />
+                                                <div className="text-center">
+                                                    <p className="text-xs text-orange-600 font-bold uppercase tracking-wide mb-2">Duración</p>
+                                                    <p className="text-2xl font-black text-orange-900">
+                                                        {event.eventTime ? (() => {
+                                                            const parts = event.eventTime.split(':');
+                                                            const hours = parseInt(parts[0]);
+                                                            const minutes = parseInt(parts[1]);
+                                                            if (hours > 0) {
+                                                                return `${hours}h ${minutes}m`;
+                                                            } else {
+                                                                return `${minutes}m`;
+                                                            }
+                                                        })() : 'N/A'}
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <div className="flex items-center gap-3 bg-green-50 px-5 py-3 rounded-xl border-2 border-green-200">
-                                                <Users className="w-6 h-6 text-green-600" />
-                                                <div>
-                                                    <p className="text-sm text-green-600 font-semibold">Voluntarios</p>
-                                                    <p className="text-lg font-black text-green-900">{event.attendeesCount || 0}</p>
+
+                                            {/* Volunteers Card */}
+                                            <div className="flex flex-col items-center gap-4 bg-green-50 px-8 py-6 rounded-2xl border-2 border-green-300 hover:shadow-lg transition-all">
+                                                <Users className="w-8 h-8 text-green-600" />
+                                                <div className="text-center">
+                                                    <p className="text-xs text-green-600 font-bold uppercase tracking-wide mb-2">Voluntarios Confirmados</p>
+                                                    <p className="text-2xl font-black text-green-900">{event.attendeesCount || 0}</p>
                                                 </div>
                                             </div>
                                         </div>

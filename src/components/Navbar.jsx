@@ -33,18 +33,21 @@ export default function Navbar() {
                         <Link to="/" className={`transition-all duration-300 font-medium ${isActive('/')}`}>
                             Home
                         </Link>
+                        <Link to="/all-events" className={`transition-all duration-300 font-medium ${isActive('/all-events')}`}>
+                            Todos los Eventos
+                        </Link>
                         {isAuthenticated && (
                             <Link to="/events" className={`transition-all duration-300 font-medium ${isActive('/events')}`}>
-                                Events
+                                Mis Eventos
                             </Link>
                         )}
                         {!isAuthenticated ? (
                             <>
                                 <Link to="/login" className={`transition-all duration-300 font-medium ${isActive('/login')}`}>
-                                    Login
+                                    Iniciar Sesión
                                 </Link>
                                 <Link to="/register" className="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-2 rounded-lg hover:shadow-glow transition-all duration-300 font-medium">
-                                    Register
+                                    Registrarse
                                 </Link>
                             </>
                         ) : (
@@ -53,7 +56,7 @@ export default function Navbar() {
                                 className="flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-all duration-300"
                             >
                                 <LogOut className="w-5 h-5" />
-                                Logout
+                                Cerrar Sesión
                             </button>
                         )}
                     </div>
@@ -77,18 +80,21 @@ export default function Navbar() {
                         <Link to="/" className="block py-2 text-gray-600 hover:text-primary-600 font-medium">
                             Home
                         </Link>
+                        <Link to="/all-events" className="block py-2 text-gray-600 hover:text-primary-600 font-medium">
+                            Todos los Eventos
+                        </Link>
                         {isAuthenticated && (
                             <Link to="/events" className="block py-2 text-gray-600 hover:text-primary-600 font-medium">
-                                Events
+                                Mis Eventos
                             </Link>
                         )}
                         {!isAuthenticated ? (
                             <>
                                 <Link to="/login" className="block py-2 text-gray-600 hover:text-primary-600 font-medium">
-                                    Login
+                                    Iniciar Sesión
                                 </Link>
                                 <Link to="/register" className="block w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-2 rounded-lg text-center font-medium">
-                                    Register
+                                    Registrarse
                                 </Link>
                             </>
                         ) : (
@@ -97,7 +103,7 @@ export default function Navbar() {
                                 className="w-full flex items-center justify-center gap-2 text-gray-600 hover:text-primary-600 font-medium py-2"
                             >
                                 <LogOut className="w-5 h-5" />
-                                Logout
+                                Cerrar Sesión
                             </button>
                         )}
                     </div>
