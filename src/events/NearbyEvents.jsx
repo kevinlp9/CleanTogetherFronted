@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { MapPin, Sparkles } from "lucide-react";
+import { MapPin, Sparkles, Plus } from "lucide-react";
+import { Link } from "react-router-dom";
 import api from "../api/axios";
 import Navbar from "../components/Navbar";
 import EventCard from "../components/EventCard";
@@ -19,6 +20,7 @@ export default function NearbyEvents() {
                     const res = await api.get(
                         `/events/nearby?lat=${latitude}&lng=${longitude}&radiusKm=5`
                     );
+                    console.log("Events loaded:", res.data);
                     setEvents(res.data || []);
                 } catch (error) {
                     console.error("Failed to fetch events:", error);
@@ -52,9 +54,16 @@ export default function NearbyEvents() {
                             Cleanup Events
                         </span>
                     </h1>
-                    <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                    <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-8">
                         Join local cleanup initiatives in your area. Together, we can make our communities cleaner and greener.
                     </p>
+                    <Link
+                        to="/events/create"
+                        className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-3 rounded-lg hover:shadow-glow font-semibold transition-all duration-300"
+                    >
+                        <Plus className="w-5 h-5" />
+                        Create New Event
+                    </Link>
                 </div>
 
                 {/* Location Info */}
@@ -96,9 +105,13 @@ export default function NearbyEvents() {
                                 <p className="text-gray-600 mb-8">
                                     No cleanup events found in your area. Check back soon or create one!
                                 </p>
-                                <button className="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-3 rounded-lg hover:shadow-glow font-semibold transition-all duration-300">
+                                <Link
+                                    to="/events/create"
+                                    className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-3 rounded-lg hover:shadow-glow font-semibold transition-all duration-300"
+                                >
+                                    <Plus className="w-5 h-5" />
                                     Create First Event
-                                </button>
+                                </Link>
                             </div>
                         )}
                     </>

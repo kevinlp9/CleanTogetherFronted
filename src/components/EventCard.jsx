@@ -1,8 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import { MapPin, Users, Calendar, ArrowRight } from 'lucide-react';
 
 export default function EventCard({ event }) {
+    const navigate = useNavigate();
+
     return (
-        <div className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-glow-lg transition-all duration-300 hover:-translate-y-1">
+        <div
+            onClick={() => navigate(`/events/${event.id}`)}
+            className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-glow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+        >
             {/* Event Image */}
             <div className="relative h-48 bg-gradient-to-br from-primary-200 to-accent-200 overflow-hidden">
                 {event.imageBase64 ? (
@@ -56,8 +62,14 @@ export default function EventCard({ event }) {
                 </div>
 
                 {/* Button */}
-                <button className="w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold py-3 rounded-lg hover:shadow-glow transition-all duration-300 flex items-center justify-center gap-2 group/btn">
-                    Join Cleanup
+                <button
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        navigate(`/events/${event.id}`);
+                    }}
+                    className="w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold py-3 rounded-lg hover:shadow-glow transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+                >
+                    View Details
                     <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
             </div>
