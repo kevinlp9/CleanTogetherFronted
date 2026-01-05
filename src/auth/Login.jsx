@@ -63,10 +63,10 @@ export default function Login({ onLogin }) {
                                 {/* Header */}
                                 <div className="text-center mb-10">
                                     <h1 className="text-4xl font-black text-gray-900 mb-3">
-                                        Welcome Back 👋
+                                        Bienvenido de Nuevo 👋
                                     </h1>
                                     <p className="text-gray-600 text-lg font-medium">
-                                        Sign in to continue to <span className="bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent font-black">Clean Together</span>
+                                        Inicia sesión para continuar en <span className="bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent font-black">Clean Together</span>
                                     </p>
                                 </div>
 
@@ -83,13 +83,13 @@ export default function Login({ onLogin }) {
                                     {/* Email Field */}
                                     <div className="animate-fade-in" style={{ animationDelay: '100ms' }}>
                                         <label className="block text-sm font-bold text-gray-800 mb-3">
-                                            📧 Email Address
+                                            📧 Correo Electrónico
                                         </label>
                                         <div className="relative">
                                             <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                                             <input
                                                 type="email"
-                                                placeholder="you@example.com"
+                                                placeholder="tu@ejemplo.com"
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
                                                 className="w-full pl-14 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all text-lg"
@@ -101,7 +101,7 @@ export default function Login({ onLogin }) {
                                     {/* Password Field */}
                                     <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
                                         <label className="block text-sm font-bold text-gray-800 mb-3">
-                                            🔐 Password
+                                            🔐 Contraseña
                                         </label>
                                         <div className="relative">
                                             <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -127,10 +127,10 @@ export default function Login({ onLogin }) {
                                     <div className="flex items-center justify-between animate-fade-in" style={{ animationDelay: '300ms' }}>
                                         <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer hover:text-gray-800 transition-colors">
                                             <input type="checkbox" className="w-4 h-4 rounded border-2 border-gray-300 cursor-pointer" />
-                                            Remember me
+                                            Recuérdame
                                         </label>
                                         <a href="#" className="text-sm text-primary-600 hover:text-primary-700 font-bold">
-                                            Forgot password?
+                                            ¿Olvidaste tu contraseña?
                                         </a>
                                     </div>
 
@@ -144,10 +144,10 @@ export default function Login({ onLogin }) {
                                         {loading ? (
                                             <>
                                                 <Loader className="w-5 h-5 animate-spin" />
-                                                Signing in...
+                                                Iniciando sesión...
                                             </>
                                         ) : (
-                                            "Sign In"
+                                            "Iniciar Sesión"
                                         )}
                                     </button>
                                 </form>
@@ -155,7 +155,7 @@ export default function Login({ onLogin }) {
                                 {/* Divider */}
                                 <div className="my-8 flex items-center animate-fade-in" style={{ animationDelay: '500ms' }}>
                                     <div className="flex-1 border-t-2 border-gray-200"></div>
-                                    <span className="px-4 text-sm text-gray-500 font-medium">New to Clean Together?</span>
+                                    <span className="px-4 text-sm text-gray-500 font-medium">¿Nuevo en Clean Together?</span>
                                     <div className="flex-1 border-t-2 border-gray-200"></div>
                                 </div>
 
@@ -165,16 +165,16 @@ export default function Login({ onLogin }) {
                                     className="w-full block text-center py-3 border-2 border-gray-300 text-gray-700 font-bold rounded-xl hover:border-primary-500 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 animate-fade-in text-lg"
                                     style={{ animationDelay: '600ms' }}
                                 >
-                                    Create New Account
+                                    Crear Nueva Cuenta
                                 </Link>
                             </div>
                         </div>
 
                         {/* Footer Note */}
                         <p className="text-center text-gray-600 text-sm mt-8 animate-fade-in font-medium" style={{ animationDelay: '700ms' }}>
-                            By signing in, you agree to our{' '}
+                            Al iniciar sesión, aceptas nuestros{' '}
                             <a href="#" className="text-primary-600 hover:text-primary-700 font-bold">
-                                Terms of Service
+                                Términos de Servicio
                             </a>
                         </p>
                     </div>

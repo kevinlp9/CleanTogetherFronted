@@ -85,9 +85,9 @@ export default function Register() {
                                 <div className="flex justify-center mb-4">
                                     <CheckCircle className="w-16 h-16 text-green-600 animate-bounce" />
                                 </div>
-                                <h3 className="text-2xl font-black text-green-900 mb-2">🎉 Account Created!</h3>
+                                <h3 className="text-2xl font-black text-green-900 mb-2">🎉 ¡Cuenta Creada!</h3>
                                 <p className="text-green-700 font-semibold">
-                                    Redirecting to login...
+                                    Redirigiendo a inicio de sesión...
                                 </p>
                             </div>
                         )}
@@ -110,10 +110,10 @@ export default function Register() {
                                 {/* Header */}
                                 <div className="text-center mb-10">
                                     <h1 className="text-4xl font-black text-gray-900 mb-3">
-                                        Join Us Today 🌱
+                                        Únete Hoy 🌱
                                     </h1>
                                     <p className="text-gray-600 text-lg font-medium">
-                                        Create an account to start making a <span className="text-accent-600 font-black">real difference</span>
+                                        Crea una cuenta para comenzar a hacer una <span className="text-accent-600 font-black">diferencia real</span>
                                     </p>
                                 </div>
 
@@ -130,14 +130,14 @@ export default function Register() {
                                     {/* Full Name Field */}
                                     <div className="animate-fade-in" style={{ animationDelay: '100ms' }}>
                                         <label className="block text-sm font-bold text-gray-800 mb-3">
-                                            👤 Full Name
+                                            👤 Nombre Completo
                                         </label>
                                         <div className="relative">
                                             <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                                             <input
                                                 type="text"
                                                 name="name"
-                                                placeholder="John Doe"
+                                                placeholder="Juan Pérez"
                                                 value={formData.name}
                                                 onChange={handleChange}
                                                 className="w-full pl-14 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-accent-500 focus:ring-2 focus:ring-accent-200 transition-all text-lg"
@@ -149,14 +149,14 @@ export default function Register() {
                                     {/* Email Field */}
                                     <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
                                         <label className="block text-sm font-bold text-gray-800 mb-3">
-                                            📧 Email Address
+                                            📧 Correo Electrónico
                                         </label>
                                         <div className="relative">
                                             <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                                             <input
                                                 type="email"
                                                 name="email"
-                                                placeholder="you@example.com"
+                                                placeholder="tu@ejemplo.com"
                                                 value={formData.email}
                                                 onChange={handleChange}
                                                 className="w-full pl-14 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-accent-500 focus:ring-2 focus:ring-accent-200 transition-all text-lg"
@@ -168,7 +168,7 @@ export default function Register() {
                                     {/* Password Field */}
                                     <div className="animate-fade-in" style={{ animationDelay: '300ms' }}>
                                         <label className="block text-sm font-bold text-gray-800 mb-3">
-                                            🔐 Password
+                                            🔐 Contraseña
                                         </label>
                                         <div className="relative">
                                             <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -194,7 +194,7 @@ export default function Register() {
                                     {/* Confirm Password Field */}
                                     <div className="animate-fade-in" style={{ animationDelay: '400ms' }}>
                                         <label className="block text-sm font-bold text-gray-800 mb-3">
-                                            ✓ Confirm Password
+                                            ✓ Confirmar Contraseña
                                         </label>
                                         <div className="relative">
                                             <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -225,13 +225,13 @@ export default function Register() {
                                             required
                                         />
                                         <span className="font-medium">
-                                            I agree to the{' '}
+                                            Acepto los{' '}
                                             <a href="#" className="text-accent-600 hover:text-accent-700 font-bold">
-                                                Terms of Service
+                                                Términos de Servicio
                                             </a>
-                                            {' '}and{' '}
+                                            {' '}y la{' '}
                                             <a href="#" className="text-accent-600 hover:text-accent-700 font-bold">
-                                                Privacy Policy
+                                                Política de Privacidad
                                             </a>
                                         </span>
                                     </label>
@@ -246,10 +246,10 @@ export default function Register() {
                                         {loading ? (
                                             <>
                                                 <Loader className="w-5 h-5 animate-spin" />
-                                                Creating Account...
+                                                Creando Cuenta...
                                             </>
                                         ) : (
-                                            "Create Account"
+                                            "Crear Cuenta"
                                         )}
                                     </button>
                                 </form>
@@ -257,7 +257,7 @@ export default function Register() {
                                 {/* Divider */}
                                 <div className="my-8 flex items-center animate-fade-in" style={{ animationDelay: '700ms' }}>
                                     <div className="flex-1 border-t-2 border-gray-200"></div>
-                                    <span className="px-4 text-sm text-gray-500 font-medium">Already have an account?</span>
+                                    <span className="px-4 text-sm text-gray-500 font-medium">¿Ya tienes una cuenta?</span>
                                     <div className="flex-1 border-t-2 border-gray-200"></div>
                                 </div>
 
@@ -267,14 +267,14 @@ export default function Register() {
                                     className="w-full block text-center py-3 border-2 border-gray-300 text-gray-700 font-bold rounded-xl hover:border-accent-500 hover:text-accent-600 hover:bg-accent-50 transition-all duration-300 animate-fade-in text-lg"
                                     style={{ animationDelay: '800ms' }}
                                 >
-                                    Sign In
+                                    Iniciar Sesión
                                 </Link>
                             </div>
                         </div>
 
                         {/* Footer Note */}
                         <p className="text-center text-gray-600 text-sm mt-8 animate-fade-in font-medium" style={{ animationDelay: '900ms' }}>
-                            🌱 Join our community of environmental advocates today
+                            🌱 Únete a nuestra comunidad de defensores del medio ambiente hoy
                         </p>
                     </div>
                 </div>

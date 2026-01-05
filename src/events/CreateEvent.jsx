@@ -61,7 +61,7 @@ export default function CreateEvent() {
         setError("");
 
         if (!formData.title || !formData.description || !formData.location || !formData.date || !formData.time) {
-            setError("All fields are required");
+            setError("Please fill in all required fields");
             return;
         }
 
@@ -124,9 +124,9 @@ export default function CreateEvent() {
                                 <div className="flex justify-center mb-4">
                                     <CheckCircle className="w-16 h-16 text-green-600 animate-bounce" />
                                 </div>
-                                <h3 className="text-2xl font-black text-green-900 mb-2">🎉 Event Created Successfully!</h3>
+                                <h3 className="text-2xl font-black text-green-900 mb-2">🎉 ¡Evento Creado!</h3>
                                 <p className="text-green-700 text-lg font-semibold">
-                                    Redirecting to events list...
+                                    Redirigiendo a lista de eventos...
                                 </p>
                             </div>
                         )}
@@ -137,7 +137,7 @@ export default function CreateEvent() {
                             className="flex items-center gap-2 text-primary-600 hover:text-primary-700 font-bold mb-8 transition-all hover:-translate-x-1"
                         >
                             <ArrowLeft className="w-5 h-5" />
-                            Back to Events
+                            Volver a Eventos
                         </button>
 
                         {/* Main Card */}
@@ -159,13 +159,13 @@ export default function CreateEvent() {
                                 <div className="mb-10">
                                     <div className="flex items-center gap-2 mb-4">
                                         <Sparkles className="w-6 h-6 text-primary-600 animate-spin" style={{ animationDuration: '3s' }} />
-                                        <span className="text-primary-600 font-bold text-lg">Create Your Event</span>
+                                        <span className="text-primary-600 font-bold text-lg">Crea Tu Evento</span>
                                     </div>
                                     <h1 className="text-4xl font-black text-gray-900 mb-3">
-                                        Organize a Cleanup
+                                        Organiza una Limpieza
                                     </h1>
                                     <p className="text-xl text-gray-600 leading-relaxed">
-                                        Make a real difference in your community. Create an event and inspire others to join! 🌱
+                                        Haz una diferencia real en tu comunidad. ¡Crea un evento e inspira a otros a unirse! 🌱
                                     </p>
                                 </div>
 
@@ -182,12 +182,12 @@ export default function CreateEvent() {
                                     {/* Title Field */}
                                     <div className="animate-fade-in" style={{ animationDelay: '100ms' }}>
                                         <label className="block text-sm font-bold text-gray-800 mb-3">
-                                            <span className="text-primary-600">✨</span> Event Title
+                                            <span className="text-primary-600">✨</span> Título del Evento
                                         </label>
                                         <input
                                             type="text"
                                             name="title"
-                                            placeholder="e.g., Community Beach Cleanup"
+                                            placeholder="p.ej., Limpieza de Playa Comunitaria"
                                             value={formData.title}
                                             onChange={handleChange}
                                             className="w-full px-5 py-3 border-2 border-gray-300 rounded-xl focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all text-lg"
@@ -198,11 +198,11 @@ export default function CreateEvent() {
                                     {/* Description Field */}
                                     <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
                                         <label className="block text-sm font-bold text-gray-800 mb-3">
-                                            <span className="text-blue-600">📝</span> Description
+                                            <span className="text-blue-600">📝</span> Descripción
                                         </label>
                                         <textarea
                                             name="description"
-                                            placeholder="Describe your cleanup event, what needs to be done, and any special details..."
+                                            placeholder="Describe tu evento de limpieza, qué hay que hacer y detalles especiales..."
                                             value={formData.description}
                                             onChange={handleChange}
                                             rows="4"
@@ -214,14 +214,14 @@ export default function CreateEvent() {
                                     {/* Location Field */}
                                     <div className="animate-fade-in" style={{ animationDelay: '300ms' }}>
                                         <label className="block text-sm font-bold text-gray-800 mb-3">
-                                            <span className="text-red-600">📍</span> Location
+                                            <span className="text-red-600">📍</span> Ubicación
                                         </label>
                                         <div className="relative">
                                             <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400" />
                                             <input
                                                 type="text"
                                                 name="location"
-                                                placeholder="e.g., Central Park, New York"
+                                                placeholder="p.ej., Parque Central, Ciudad de México"
                                                 value={formData.location}
                                                 onChange={handleChange}
                                                 className="w-full pl-14 pr-5 py-3 border-2 border-gray-300 rounded-xl focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all text-lg"
@@ -235,7 +235,7 @@ export default function CreateEvent() {
                                         {/* Date Field */}
                                         <div className="animate-fade-in" style={{ animationDelay: '400ms' }}>
                                             <label className="block text-sm font-bold text-gray-800 mb-3">
-                                                <span className="text-green-600">📅</span> Date
+                                                <span className="text-green-600">📅</span> Fecha
                                             </label>
                                             <div className="relative">
                                                 <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400" />
@@ -253,7 +253,7 @@ export default function CreateEvent() {
                                         {/* Time Field */}
                                         <div className="animate-fade-in" style={{ animationDelay: '500ms' }}>
                                             <label className="block text-sm font-bold text-gray-800 mb-3">
-                                                <span className="text-orange-600">🕐</span> Time
+                                                <span className="text-orange-600">🕐</span> Hora
                                             </label>
                                             <input
                                                 type="time"
@@ -269,17 +269,17 @@ export default function CreateEvent() {
                                     {/* Google Map Section */}
                                     <div className="animate-fade-in" style={{ animationDelay: '600ms' }}>
                                         <label className="block text-sm font-bold text-gray-800 mb-3">
-                                            <span className="text-purple-600">🗺️</span> Event Location on Map
+                                            <span className="text-purple-600">🗺️</span> Ubicación del Evento en Mapa
                                         </label>
                                         <p className="text-gray-600 text-sm mb-4 font-medium">
-                                            Click on the map to select the exact location of your cleanup event
+                                            Haz clic en el mapa para seleccionar la ubicación exacta de tu evento de limpieza
                                         </p>
 
                                         {!isLoaded ? (
                                             <div className="w-full h-96 bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl flex items-center justify-center border-2 border-gray-300">
                                                 <div className="flex flex-col items-center gap-3">
                                                     <div className="w-12 h-12 border-4 border-gray-400 border-t-primary-500 rounded-full animate-spin"></div>
-                                                    <p className="text-gray-600 font-semibold">Loading map...</p>
+                                                    <p className="text-gray-600 font-semibold">Cargando mapa...</p>
                                                 </div>
                                             </div>
                                         ) : (
@@ -313,7 +313,7 @@ export default function CreateEvent() {
 
                                         {selectedLocation && (
                                             <p className="text-green-600 text-sm mt-3 flex items-center gap-2 font-semibold">
-                                                <span className="text-lg">✅</span> Location selected successfully
+                                                <span className="text-lg">✅</span> Ubicación seleccionada correctamente
                                             </p>
                                         )}
                                     </div>
@@ -321,7 +321,7 @@ export default function CreateEvent() {
                                     {/* Image Field */}
                                     <div className="animate-fade-in" style={{ animationDelay: '700ms' }}>
                                         <label className="block text-sm font-bold text-gray-800 mb-3">
-                                            <span className="text-cyan-600">🖼️</span> Event Image
+                                            <span className="text-cyan-600">🖼️</span> Imagen del Evento
                                         </label>
                                         <div className="relative group">
                                             <input
@@ -331,7 +331,7 @@ export default function CreateEvent() {
                                                 onChange={handleImageChange}
                                                 className="w-full px-5 py-4 border-2 border-dashed border-gray-400 rounded-2xl focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all cursor-pointer group-hover:border-primary-500 bg-gradient-to-br from-gray-50 to-gray-100 text-lg font-medium"
                                             />
-                                            <p className="text-gray-600 text-sm mt-2">💡 Drag an image or click to browse</p>
+                                            <p className="text-gray-600 text-sm mt-2">💡 Arrastra una imagen o haz clic para examinar</p>
                                         </div>
 
                                         {/* Image Preview */}
@@ -354,7 +354,7 @@ export default function CreateEvent() {
                                                     className="absolute top-3 right-3 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all shadow-lg flex items-center gap-2"
                                                 >
                                                     <Trash2 className="w-4 h-4" />
-                                                    Remove
+                                                    Eliminar
                                                 </button>
                                             </div>
                                         )}
@@ -370,12 +370,12 @@ export default function CreateEvent() {
                                         {loading ? (
                                             <>
                                                 <Loader className="w-6 h-6 animate-spin" />
-                                                Creating Event...
+                                                Creando Evento...
                                             </>
                                         ) : (
                                             <>
                                                 <Users className="w-6 h-6" />
-                                                Create Event
+                                                Crear Evento
                                             </>
                                         )}
                                     </button>
@@ -385,7 +385,7 @@ export default function CreateEvent() {
                                 <div className="mt-10 p-6 bg-gradient-to-r from-primary-50 to-blue-50 border-2 border-primary-300 rounded-2xl animate-fade-in" style={{ animationDelay: '900ms' }}>
                                     <p className="text-primary-900 text-base font-semibold leading-relaxed">
                                         <span className="text-2xl mr-2">💡</span>
-                                        <span className="font-black">Pro Tip:</span> Make sure to provide clear details about your event so volunteers can understand what to expect and how they can help!
+                                        <span className="font-black">Consejo:</span> Asegúrate de proporcionar detalles claros sobre tu evento para que los voluntarios puedan entender qué esperar y cómo pueden ayudar.
                                     </p>
                                 </div>
                             </div>

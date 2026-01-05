@@ -53,25 +53,26 @@ export default function NearbyEvents() {
                 {/* Main Content */}
                 <div className="flex-grow w-full px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
                     {/* Hero Section */}
-                    <section className="w-full max-w-7xl py-16 md:py-24">
+                    <section className="w-full max-w-7xl py-24 md:py-32">
                         {/* Badge */}
-                        <div className="flex justify-center mb-8">
+                        <div className="flex justify-center mb-16">
                             <div className="inline-flex items-center gap-2 bg-white bg-opacity-60 backdrop-blur-md text-primary-600 px-6 py-2 rounded-full font-semibold border border-primary-200 shadow-lg hover:shadow-xl transition-all">
                                 <Sparkles className="w-5 h-5 animate-spin" style={{ animationDuration: '3s' }} />
-                                Discover Your Community
+                                Descubre Tu Comunidad
                             </div>
                         </div>
 
                         {/* Main Title */}
-                        <div className="text-center mb-12">
-                            <h1 className="text-6xl md:text-7xl font-black text-gray-900 mb-6 leading-tight">
-                                Cleanup Events
-                                <span className="block bg-gradient-to-r from-primary-600 via-accent-500 to-primary-600 bg-clip-text text-transparent">
-                                    Near You
+                        <div className="text-center mb-20">
+                            <h1 className="text-6xl md:text-7xl font-black text-gray-900 mb-10 leading-tight">
+                                Eventos de Limpieza
+                                <span className="block bg-gradient-to-r from-primary-600 via-accent-500 to-primary-600 bg-clip-text text-gray-900 mb-6 leading-tight">
+                                    Cerca de Ti
                                 </span>
                             </h1>
-                            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
-                                Join thousands of volunteers making a real difference. Discover cleanup events in your area and be part of the movement! 🌱
+                            <p className="text-xl md:text-2xl text-gray-700 mx-auto mb-14 leading-relaxed font-medium text-center">
+                                Únete a miles de voluntarios haciendo una diferencia real.<br />
+                                ¡Descubre eventos de limpieza en tu área y sé parte del movimiento! 🌱
                             </p>
 
                             {/* CTA Button */}
@@ -80,64 +81,64 @@ export default function NearbyEvents() {
                                 className="inline-flex items-center gap-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white px-10 py-4 rounded-xl hover:shadow-2xl hover:-translate-y-1 font-bold text-lg transition-all duration-300 shadow-lg group"
                             >
                                 <Plus className="w-6 h-6 group-hover:rotate-90 transition-transform" />
-                                Create New Event
+                                Crear Nuevo Evento
                             </Link>
                         </div>
 
                         {/* Stats Bar */}
-                        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 animate-fade-in">
+                        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 mb-24 animate-fade-in">
                             {/* Events Available */}
-                            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 shadow-lg border-2 border-blue-300 hover:shadow-xl transition-all hover:-translate-y-1">
-                                <div className="text-center space-y-3">
-                                    <div className="text-5xl">📅</div>
+                            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-10 shadow-lg border-2 border-blue-300 hover:shadow-xl transition-all hover:-translate-y-1">
+                                <div className="text-center space-y-4">
+                                    <div className="text-6xl">📅</div>
                                     <p className="text-4xl md:text-5xl font-black text-blue-600">
                                         {events.length}
                                     </p>
-                                    <p className="text-blue-900 font-bold text-lg">Events Available</p>
+                                    <p className="text-blue-900 font-bold text-lg">Eventos Disponibles</p>
                                 </div>
                             </div>
 
                             {/* Location Found */}
-                            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 shadow-lg border-2 border-green-300 hover:shadow-xl transition-all hover:-translate-y-1">
-                                <div className="text-center space-y-3">
-                                    <div className="text-5xl animate-bounce">{location ? "✅" : "🔄"}</div>
+                            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-10 shadow-lg border-2 border-green-300 hover:shadow-xl transition-all hover:-translate-y-1">
+                                <div className="text-center space-y-4">
+                                    <div className="text-6xl animate-bounce">{location ? "✅" : "🔄"}</div>
                                     <p className="text-4xl md:text-5xl font-black text-green-600">
                                         {location ? "1" : "0"}
                                     </p>
                                     <p className="text-green-900 font-bold text-lg">
-                                        {location ? "Location Found" : "Finding..."}
+                                        {location ? "Ubicación Encontrada" : "Buscando..."}
                                     </p>
                                 </div>
                             </div>
 
                             {/* Search Radius */}
-                            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 shadow-lg border-2 border-purple-300 hover:shadow-xl transition-all hover:-translate-y-1">
-                                <div className="text-center space-y-3">
-                                    <div className="text-5xl">🎯</div>
+                            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-10 shadow-lg border-2 border-purple-300 hover:shadow-xl transition-all hover:-translate-y-1">
+                                <div className="text-center space-y-4">
+                                    <div className="text-6xl">🎯</div>
                                     <p className="text-4xl md:text-5xl font-black text-purple-600">
                                         5km
                                     </p>
-                                    <p className="text-purple-900 font-bold text-lg">Search Radius</p>
+                                    <p className="text-purple-900 font-bold text-lg">Radio de Búsqueda</p>
                                 </div>
                             </div>
                         </div>
 
                         {/* Location Info Card */}
                         {location && (
-                            <div className="w-full max-w-2xl mb-16 animate-fade-in">
-                                <div className="bg-gradient-to-r from-primary-100 to-blue-100 rounded-2xl shadow-lg p-8 flex items-center gap-6 border-2 border-primary-300 hover:shadow-xl transition-all space-y-4">
+                            <div className="w-full max-w-2xl mb-28 animate-fade-in mx-auto">
+                                <div className="bg-gradient-to-r from-primary-100 to-blue-100 rounded-2xl shadow-lg p-10 flex items-center gap-8 border-2 border-primary-300 hover:shadow-xl transition-all space-y-4">
                                     <div className="p-4 bg-white rounded-xl shadow-md">
                                         <MapPin className="w-8 h-8 text-primary-600 animate-bounce" />
                                     </div>
-                                    <div className="flex-grow space-y-2">
+                                    <div className="flex-grow space-y-3">
                                         <p className="text-gray-900 font-black text-lg">
-                                            📍 Showing events within <span className="text-primary-600 text-xl">5 km</span>
+                                            📍 Mostrando eventos dentro de <span className="text-primary-600 text-xl">5 km</span>
                                         </p>
                                         <p className="text-gray-700 font-semibold">
                                             Lat: {location.latitude.toFixed(4)} | Lng: {location.longitude.toFixed(4)}
                                         </p>
                                     </div>
-                                    <div className="text-4xl animate-pulse">🌍</div>
+                                    <div className="text-5xl animate-pulse">🌍</div>
                                 </div>
                             </div>
                         )}
@@ -149,8 +150,8 @@ export default function NearbyEvents() {
                                     <div className="w-20 h-20 border-4 border-gray-200 rounded-full"></div>
                                     <div className="w-20 h-20 border-4 border-primary-500 rounded-full border-t-transparent animate-spin absolute inset-0"></div>
                                 </div>
-                                <p className="text-2xl text-gray-700 font-bold mb-2">Loading events near you...</p>
-                                <p className="text-gray-600">This might take a few seconds</p>
+                                <p className="text-2xl text-gray-700 font-bold mb-2">Cargando eventos cerca de ti...</p>
+                                <p className="text-gray-600">Esto podría tomar unos segundos</p>
                             </div>
                         )}
 
@@ -158,11 +159,11 @@ export default function NearbyEvents() {
                         {!loading && (
                             <>
                                 {events.length > 0 ? (
-                                    <div className="w-full space-y-12">
+                                    <div className="w-full space-y-16">
                                         <div className="flex items-center gap-4 justify-center animate-fade-in">
                                             <Zap className="w-8 h-8 text-primary-600 animate-pulse" />
                                             <h2 className="text-4xl md:text-5xl font-black text-gray-900">
-                                                Available Events
+                                                Eventos Disponibles
                                             </h2>
                                             <div className="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-2 rounded-full font-black text-xl shadow-lg">
                                                 {events.length}
@@ -181,24 +182,24 @@ export default function NearbyEvents() {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="w-full bg-gradient-to-br from-white to-green-50 rounded-3xl shadow-xl p-16 text-center border-2 border-green-300 hover:shadow-2xl transition-all space-y-6">
+                                    <div className="w-full bg-gradient-to-br from-white to-green-50 rounded-3xl shadow-xl p-20 text-center border-2 border-green-300 hover:shadow-2xl transition-all space-y-8">
                                         <div className="text-8xl animate-bounce">🌱</div>
                                         <h3 className="text-5xl font-black text-gray-900">
-                                            No Events Yet!
+                                            ¡Aún No Hay Eventos!
                                         </h3>
                                         <p className="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed font-medium">
-                                            Be the first to create a cleanup event in your area and inspire others to join the movement! 🚀
+                                            ¡Sé el primero en crear un evento de limpieza en tu área e inspira a otros a unirse al movimiento! 🚀
                                         </p>
                                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                                            ✨ Every event starts with one person taking action. You can be that person!
+                                            ✨ Todo evento comienza con una persona tomando acción. ¡Ese puedes ser tú!
                                         </p>
-                                        <div className="pt-4">
+                                        <div className="pt-6">
                                             <Link
                                                 to="/events/create"
                                                 className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 text-white px-12 py-5 rounded-xl hover:shadow-2xl hover:-translate-y-1 font-black text-lg transition-all duration-300 shadow-lg"
                                             >
                                                 <Plus className="w-7 h-7" />
-                                                Create First Event
+                                                Crear Primer Evento
                                             </Link>
                                         </div>
                                     </div>

@@ -71,7 +71,7 @@ export default function EventDetail() {
                             <div className="w-20 h-20 border-4 border-gray-200 rounded-full"></div>
                             <div className="w-20 h-20 border-4 border-primary-500 rounded-full border-t-transparent animate-spin absolute inset-0"></div>
                         </div>
-                        <p className="text-2xl text-gray-700 font-bold">Loading event...</p>
+                        <p className="text-2xl text-gray-700 font-bold">Cargando evento...</p>
                     </div>
                 </div>
                 <Footer />
@@ -86,13 +86,13 @@ export default function EventDetail() {
                 <div className="flex-grow flex items-center justify-center">
                     <div className="text-center bg-white rounded-3xl shadow-xl p-12 border-2 border-red-300">
                         <AlertCircle className="w-16 h-16 text-red-600 mx-auto mb-4" />
-                        <p className="text-red-600 font-bold text-xl mb-4">{error || "Event not found"}</p>
+                        <p className="text-red-600 font-bold text-xl mb-4">{error || "Evento no encontrado"}</p>
                         <button
                             onClick={() => navigate("/events")}
                             className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg transition-all"
                         >
                             <ArrowLeft className="w-5 h-5" />
-                            Back to Events
+                            Volver a Eventos
                         </button>
                     </div>
                 </div>
@@ -127,7 +127,7 @@ export default function EventDetail() {
                             className="flex items-center gap-2 text-primary-600 hover:text-primary-700 font-bold mb-8 transition-all hover:-translate-x-1 text-lg"
                         >
                             <ArrowLeft className="w-6 h-6" />
-                            Back to Events
+                            Volver a Eventos
                         </button>
 
                         {/* Join Success Message */}
@@ -135,8 +135,8 @@ export default function EventDetail() {
                             <div className="mb-8 p-6 bg-gradient-to-r from-green-100 to-emerald-100 border-2 border-green-400 rounded-2xl flex items-center gap-4 animate-pulse shadow-lg">
                                 <Check className="w-8 h-8 text-green-600 flex-shrink-0" />
                                 <div>
-                                    <p className="text-green-900 font-black text-lg">🎉 Successfully joined the event!</p>
-                                    <p className="text-green-800">You're now part of this cleanup initiative</p>
+                                    <p className="text-green-900 font-black text-lg">🎉 ¡Te uniste al evento!</p>
+                                    <p className="text-green-800">Ahora eres parte de esta iniciativa de limpieza</p>
                                 </div>
                             </div>
                         )}
@@ -170,21 +170,21 @@ export default function EventDetail() {
                                             <div className="flex items-center gap-3 bg-blue-50 px-5 py-3 rounded-xl border-2 border-blue-200">
                                                 <Calendar className="w-6 h-6 text-blue-600" />
                                                 <div>
-                                                    <p className="text-sm text-blue-600 font-semibold">Date</p>
+                                                    <p className="text-sm text-blue-600 font-semibold">Fecha</p>
                                                     <p className="text-lg font-black text-blue-900">{event.date}</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-center gap-3 bg-orange-50 px-5 py-3 rounded-xl border-2 border-orange-200">
                                                 <Clock className="w-6 h-6 text-orange-600" />
                                                 <div>
-                                                    <p className="text-sm text-orange-600 font-semibold">Time</p>
+                                                    <p className="text-sm text-orange-600 font-semibold">Hora</p>
                                                     <p className="text-lg font-black text-orange-900">{event.time}</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-center gap-3 bg-green-50 px-5 py-3 rounded-xl border-2 border-green-200">
                                                 <Users className="w-6 h-6 text-green-600" />
                                                 <div>
-                                                    <p className="text-sm text-green-600 font-semibold">Volunteers</p>
+                                                    <p className="text-sm text-green-600 font-semibold">Voluntarios</p>
                                                     <p className="text-lg font-black text-green-900">{event.attendeesCount || 0}</p>
                                                 </div>
                                             </div>
@@ -194,7 +194,7 @@ export default function EventDetail() {
                                     <div className="border-t-2 border-gray-200 pt-8">
                                         <h2 className="text-3xl font-black text-gray-900 mb-6 flex items-center gap-2">
                                             <Sparkles className="w-8 h-8 text-primary-600" />
-                                            About this Event
+                                            Acerca de este Evento
                                         </h2>
                                         <p className="text-xl text-gray-700 leading-relaxed whitespace-pre-line font-medium">
                                             {event.description}
@@ -204,7 +204,7 @@ export default function EventDetail() {
                                     <div className="border-t-2 border-gray-200 mt-8 pt-8">
                                         <h3 className="text-2xl font-black text-gray-900 mb-5 flex items-center gap-2">
                                             <MapPin className="w-7 h-7 text-red-600" />
-                                            📍 Location
+                                            📍 Ubicación
                                         </h3>
                                         <div className="bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 rounded-2xl p-6">
                                             <p className="text-2xl font-black text-gray-900 mb-2">
@@ -212,7 +212,7 @@ export default function EventDetail() {
                                             </p>
                                             {event.latitude && event.longitude && (
                                                 <p className="text-gray-600 font-semibold">
-                                                    📌 Coordinates: {parseFloat(event.latitude).toFixed(4)}, {parseFloat(event.longitude).toFixed(4)}
+                                                    📌 Coordenadas: {parseFloat(event.latitude).toFixed(4)}, {parseFloat(event.longitude).toFixed(4)}
                                                 </p>
                                             )}
                                         </div>
@@ -223,7 +223,7 @@ export default function EventDetail() {
                                 {isLoaded && event.latitude && event.longitude && (
                                     <div className="bg-white rounded-3xl shadow-xl p-10 border-2 border-primary-200 animate-fade-in" style={{ animationDelay: '200ms' }}>
                                         <h2 className="text-3xl font-black text-gray-900 mb-8 flex items-center gap-2">
-                                            🗺️ Event Location Map
+                                            🗺️ Mapa de Ubicación del Evento
                                         </h2>
                                         <div className="rounded-2xl overflow-hidden border-2 border-gray-300 shadow-lg hover:shadow-xl transition-all">
                                             <GoogleMap
@@ -243,7 +243,7 @@ export default function EventDetail() {
                                 <div className="bg-white rounded-3xl shadow-xl p-8 sticky top-24 border-2 border-primary-200 animate-fade-in" style={{ animationDelay: '300ms' }}>
                                     {/* Volunteers Counter */}
                                     <div className="mb-8 text-center bg-gradient-to-br from-primary-100 to-blue-100 rounded-2xl p-8 border-2 border-primary-300">
-                                        <p className="text-gray-700 text-sm font-bold mb-2">👥 Total Volunteers</p>
+                                        <p className="text-gray-700 text-sm font-bold mb-2">👥 Total de Voluntarios</p>
                                         <p className="text-6xl font-black bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent">
                                             {event.attendeesCount || 0}
                                         </p>
@@ -258,12 +258,12 @@ export default function EventDetail() {
                                         {joining ? (
                                             <>
                                                 <div className="w-6 h-6 border-3 border-white border-t-transparent rounded-full animate-spin"></div>
-                                                Joining...
+                                                Uniéndote...
                                             </>
                                         ) : (
                                             <>
                                                 <Users className="w-6 h-6" />
-                                                Join Event
+                                                Unirse al Evento
                                             </>
                                         )}
                                     </button>
@@ -274,20 +274,20 @@ export default function EventDetail() {
                                         className="w-full flex items-center justify-center gap-2 border-2 border-primary-500 text-primary-600 font-black py-4 rounded-xl hover:bg-primary-50 transition-all duration-300 mb-4 text-lg"
                                     >
                                         <Heart className={`w-6 h-6 transition-all ${isLiked ? "fill-current text-red-600" : ""}`} />
-                                        {isLiked ? "Saved ❤️" : "Save Event"}
+                                        {isLiked ? "Guardado ❤️" : "Guardar Evento"}
                                     </button>
 
                                     {/* Share Button */}
                                     <button className="w-full flex items-center justify-center gap-2 border-2 border-gray-400 text-gray-700 font-black py-4 rounded-xl hover:border-blue-500 hover:text-blue-600 transition-all duration-300 mb-8 text-lg">
                                         <Share2 className="w-6 h-6" />
-                                        Share Event
+                                        Compartir Evento
                                     </button>
 
                                     {/* Pro Tip Box */}
                                     <div className="p-6 bg-gradient-to-r from-primary-50 to-purple-50 border-2 border-primary-300 rounded-2xl">
                                         <p className="text-primary-900 font-bold text-base leading-relaxed">
                                             <span className="text-2xl block mb-2">💡</span>
-                                            <span className="font-black">Pro Tip:</span> Bring gloves, bags, and your enthusiasm! Every small action makes a big difference in our community.
+                                            <span className="font-black">Consejo:</span> Trae guantes, bolsas y tu entusiasmo. ¡Cada pequeña acción hace una gran diferencia en nuestra comunidad!
                                         </p>
                                     </div>
                                 </div>
