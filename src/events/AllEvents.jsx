@@ -65,12 +65,13 @@ export default function AllEvents() {
                                 <h2 className="text-5xl font-black text-gray-900">
                                     ¡Inicia Sesión Primero!
                                 </h2>
-                                <p className="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed font-medium">
+                                <p className="text-xl text-gray-700 mx-auto leading-relaxed font-medium text-center w-full">
                                     Debes iniciar sesión para ver todos los eventos disponibles en nuestra plataforma. 🚀
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-5 justify-center pt-6">
                                     <Link
                                         to="/login"
+                                        className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white px-10 py-4 rounded-xl hover:shadow-2xl font-bold text-lg transition-all duration-300 shadow-lg"
                                         className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white px-10 py-4 rounded-xl hover:shadow-2xl font-bold text-lg transition-all duration-300 shadow-lg"
                                     >
                                         <LogIn className="w-6 h-6" />
