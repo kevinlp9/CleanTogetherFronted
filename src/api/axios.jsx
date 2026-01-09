@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://localhost:5099/api", // ajusta si usas otro puerto
+    baseURL: "https://cleantogether-production.up.railway.app/api",
 });
 
 api.interceptors.request.use((config) => {
